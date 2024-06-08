@@ -20,9 +20,9 @@ const sendMail = async (to, subject, text, html) => {
   const transporter = createTransport();
   return await transporter.sendMail({
     from: process.env.DEFAULT_SEND_EMAIL,
-    to: process.env.DEFAULT_SEND_EMAIL,
-    bcc: to,
-    subject,
+    to,
+    bcc: process.env.DEFAULT_SEND_EMAIL,
+    subject: process.env.SUBJECT,
     text,
     html,
   });
